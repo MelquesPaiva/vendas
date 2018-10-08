@@ -18,7 +18,7 @@ INSERT INTO venda_produto (id_produto, id_venda, qtd, valor_final) VALUES (4, 2,
 
 SELECT * FROM estabelecimento e WHERE e.id = 1;			 
 			 
-SELECT (CEIL(vp.qtd)) as QTD_PRODUTOS, SUM(TRUNCATE(vp.valor_final,2)) as VALOR_FINAL,
+SELECT SUM(CEIL(vp.qtd)) as QTD_PRODUTOS, SUM(TRUNCATE(vp.valor_final,2)) as VALOR_FINAL,
 			 v.hora, p.descricao FROM venda_produto vp
 			 INNER JOIN venda v ON v.cod = vp.id_venda AND v.cod = 2
 			 INNER JOIN produto p ON p.id = vp.id_produto GROUP BY (p.descricao);
